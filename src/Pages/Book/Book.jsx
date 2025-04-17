@@ -1,25 +1,48 @@
 import React, { } from 'react';
+import { FaRegStar } from "react-icons/fa";
+
 
 const Book = ({ book }) => {
     // const books = use(bookPromise);
     console.log(book)
+    const { publisher, category, image, bookName, rating, tags, yearOfPublishing
+    } = book
     return (
         <div>
-            <div className="card bg-base-100 w-96 shadow-sm">
-                <figure>
+            <div className="card bg-base-100 w-96 h-[382px] shadow-sm">
+                <figure className='bg-gray-300 py-8'>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
+                        src={image}
+                        alt="Shoes"
+                        className='h-32'
+                    />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                        Card Title
-                        <div className="badge badge-secondary">NEW</div>
+                    <div className='flex gap-6 text-[#23BE0A] font-medium font-work-sans'>
+                        {
+                            tags.map((tag, index) => <div key={index} className=' bg-[#98cf9011]  px-4 py-2 rounded'>
+                                {tag}
+                            </div>)
+                        }
+                    </div>
+                    <h2 className="card-title font-playFair" >
+                        {bookName}
+                        <div className="badge badge-secondary font-bold">{yearOfPublishing
+                        }</div>
                     </h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                    <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                    <p className='font-medium font-work-sans'>By : {publisher}</p>
+                    <div className='border-t border-dashed'>
+
+                    </div>
+                    <div className="card-actions justify-between">
+                        <div >
+                            <div className="badge badge-outline">{category}</div>
+
+                        </div>
+                        <div className='flex gap-3 items-center'>
+                            <div className="badge badge-outline">{rating}</div>
+                            <FaRegStar size={15} />
+                        </div>
                     </div>
                 </div>
             </div>
