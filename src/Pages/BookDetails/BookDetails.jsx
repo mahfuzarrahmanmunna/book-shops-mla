@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoredDB } from '../../Utilities/AddToDB';
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -10,7 +11,7 @@ const BookDetails = () => {
     console.log(book)
 
     const handleReadBtn = (id) => {
-        console.log(id.target)
+        addToStoredDB(id)
     }
     return (
         <div className='min-h-screen mt-10 px-3'>
@@ -40,18 +41,20 @@ const BookDetails = () => {
                     <div className="divider"></div>
                     <div>
                         <table >
-                            <tr>
-                                <td className='px-8 '>Number of Pages : </td>
-                                <td className='px-8'>{totalPages}</td>
-                            </tr>
-                            <tr>
-                                <td className='px-8 '>Publisher : </td>
-                                <td className='px-8'>{publisher}</td>
-                            </tr>
-                            <tr>
-                                <td className='px-8 '>Year of Publishing: : </td>
-                                <td className='px-8'>{yearOfPublishing}</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td className='px-8 '>Number of Pages : </td>
+                                    <td className='px-8'>{totalPages}</td>
+                                </tr>
+                                <tr>
+                                    <td className='px-8 '>Publisher : </td>
+                                    <td className='px-8'>{publisher}</td>
+                                </tr>
+                                <tr>
+                                    <td className='px-8 '>Year of Publishing: : </td>
+                                    <td className='px-8'>{yearOfPublishing}</td>
+                                </tr>
+                            </tbody>
                         </table>
                         <div className='flex gap-8'>
                             <button onClick={() => handleReadBtn(id)} class="btn btn-accent bg-gray-50">Read</button>
