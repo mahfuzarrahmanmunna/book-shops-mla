@@ -1,9 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Header = () => {
     const links = <>
-        <li className='m-2'>Home</li>
-        <li className='m-2'>About</li>
+        <NavLink to='/'>
+            <li className='m-2'>Home</li>
+        </NavLink>
+        <NavLink to='/about'>
+            <li className='m-2'>About</li>
+        </NavLink>
     </>
     return (
         <div>
