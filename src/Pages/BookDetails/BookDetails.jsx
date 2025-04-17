@@ -9,8 +9,8 @@ const BookDetails = () => {
     const { image, publisher, tags, review, category, totalPages, yearOfPublishing } = book
     console.log(book)
 
-    const handleReadBtn = () => {
-
+    const handleReadBtn = (id) => {
+        console.log(id.target)
     }
     return (
         <div className='min-h-screen mt-10 px-3'>
@@ -54,7 +54,7 @@ const BookDetails = () => {
                             </tr>
                         </table>
                         <div className='flex gap-8'>
-                            <button class="btn btn-accent bg-gray-50">Read</button>
+                            <button onClick={() => handleReadBtn(id)} class="btn btn-accent bg-gray-50">Read</button>
                             <button class="btn btn-info text-white">Wishlist</button>
                         </div>
                     </div>
