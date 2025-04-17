@@ -10,7 +10,7 @@ const Books = () => {
     }, [])
     return (
         <div>
-            I'm Books
+            <h1 className='text-3xl text-center'>I'm Books</h1>
         </div>
     );
 };
