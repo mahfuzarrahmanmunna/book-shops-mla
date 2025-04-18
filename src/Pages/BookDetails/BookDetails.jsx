@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToStoredDB } from '../../Utilities/AddToDB';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -12,14 +16,23 @@ const BookDetails = () => {
 
     const handleReadBtn = (id) => {
         addToStoredDB(id)
+        MySwal.fire({
+            title: <p>Good Job</p>,
+            didOpen: () => {
+                // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+                MySwal.showLoading()
+            },
+        }).then(() => {
+            return MySwal.fire(<p>Shorthand works too</p>)
+        })
     }
     return (
         <div className='min-h-screen mt-10 px-3'>
             <div className='lg:flex gap-16 items-center mb-8'>
-                <div className='w-[30%]'>
+                <div className='lg:w-[30%]'>
                     <img className='h-[500px] p-16 border border-gray-300 rounded-2xl bg-gray-100' src={image} alt="" />
                 </div>
-                <div className='w-[70%]'>
+                <div className='lg:w-[70%]'>
                     <h1 className='font-playFair font-bold text-3xl'>The Catcher in the Rye</h1>
                     <p className='text-xl text-gray-600 font-work-sans'>By :{publisher} </p>
                     <div className="divider"></div>

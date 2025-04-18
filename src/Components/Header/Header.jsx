@@ -9,6 +9,9 @@ const Header = () => {
         <NavLink to='/about'>
             <li className='m-2'>About</li>
         </NavLink>
+        <NavLink to='/readList'>
+            <li className='m-2'>Read List</li>
+        </NavLink>
     </>
     return (
         <div>

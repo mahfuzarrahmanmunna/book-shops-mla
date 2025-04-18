@@ -22,7 +22,7 @@ const Book = ({ book }) => {
                         <div className='flex gap-6 text-[#23BE0A] font-medium font-work-sans'>
                             {
                                 tags.map((tag, index) => <div key={index} className=' bg-[#98cf9011]  px-4 py-2 rounded'>
-                                    {tag}
+                                    # {tag}
                                 </div>)
                             }
                         </div>
