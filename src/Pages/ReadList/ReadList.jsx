@@ -13,7 +13,7 @@ const ReadList = () => {
 
     useEffect(() => {
         const storedBookData = getStoredBook()
-        const convertedStoredBookData = storedBookData.map(id => parseInt(id))
+        const convertedStoredBookData = storedBookData?.map(id => parseInt(id))
         const myReadList = data.filter(book => convertedStoredBookData.includes(book.bookId))
         setMyReadList(myReadList)
     }, [])
@@ -50,7 +50,7 @@ const ReadList = () => {
                 <div className="tab-content bg-base-100 border-base-300 p-6">
                     <div className='lg:grid grid-cols-3 gap-8'>
                         {
-                            myReadList.map(readList => <Book book={readList} key={readList.bookId} />)
+                            myReadList?.map(readList => <Book book={readList} key={readList.bookId} />)
                         }
                     </div>
 

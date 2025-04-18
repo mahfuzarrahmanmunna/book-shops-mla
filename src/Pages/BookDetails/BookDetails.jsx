@@ -12,7 +12,7 @@ const BookDetails = () => {
     const data = useLoaderData()
     const book = data.find(book => book.bookId === bookId)
     const { image, publisher, tags, review, category, totalPages, yearOfPublishing } = book
-    console.log(book)
+    // console.log(book)
 
     const handleReadBtn = (id) => {
         addToStoredDB(id)
@@ -48,7 +48,7 @@ const BookDetails = () => {
                     <div className='flex gap-8 items-center mt-8'>
                         <span className='text-xl font-medium'>Tags : </span>
                         {
-                            tags.map((data, index) => <p key={index} className='px-4 py-1 rounded text-green-500 bg-green-100'> {data}</p>)
+                            tags?.map((data, index) => <p key={index} className='px-4 py-1 rounded text-green-500 bg-green-100'> {data}</p>)
                         }
                     </div>
                     <div className="divider"></div>
@@ -70,8 +70,8 @@ const BookDetails = () => {
                             </tbody>
                         </table>
                         <div className='flex gap-8'>
-                            <button onClick={() => handleReadBtn(id)} class="btn btn-accent bg-gray-50">Read</button>
-                            <button class="btn btn-info text-white">Wishlist</button>
+                            <button onClick={() => handleReadBtn(id)} className="btn btn-accent bg-gray-50">Read</button>
+                            <button className="btn btn-info text-white">Wishlist</button>
                         </div>
                     </div>
                 </div>

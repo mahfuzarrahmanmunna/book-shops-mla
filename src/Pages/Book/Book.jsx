@@ -8,7 +8,7 @@ const Book = ({ book }) => {
     const { bookId, publisher, category, image, bookName, rating, tags, yearOfPublishing
     } = book
     return (
-        <Link to={`bookDetails/${bookId}`}>
+        <Link to={`/bookDetails/${bookId}`}>
             <div>
                 <div className="card bg-base-100 w-96 h-[382px] shadow-sm">
                     <figure className='bg-gray-300 py-8'>
@@ -21,7 +21,7 @@ const Book = ({ book }) => {
                     <div className="card-body">
                         <div className='flex gap-6 text-[#23BE0A] font-medium font-work-sans'>
                             {
-                                tags.map((tag, index) => <div key={index} className=' bg-[#98cf9011]  px-4 py-2 rounded'>
+                                tags?.map((tag, index) => <div key={index} className=' bg-[#98cf9011]  px-4 py-2 rounded'>
                                     # {tag}
                                 </div>)
                             }
